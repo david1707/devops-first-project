@@ -3,7 +3,8 @@ pipeline{
     options {
         timeout(time: 3, unit: 'MINUTES') 
     }
-    tools {nodejs "Node"}
+    // Go to Dashboard -> Manage Jenkins -> Tools and add 'NodeJS' in your NodeJS section
+    tools {nodejs "NodeJS"}
     stages {
         stage('Cloning GitHub Repo'){
             steps{
