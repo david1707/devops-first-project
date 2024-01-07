@@ -15,7 +15,7 @@ pipeline{
         
         stage('Install dependencies'){
             options {
-                timeout(time: 60, unit: 'SECONDS') 
+                timeout(time: 90, unit: 'SECONDS') 
             }
             steps {
                 sh 'npm install'
@@ -38,10 +38,10 @@ pipeline{
     }
     post { 
         unsuccessful { 
-            echo 'The Pipeline build process has failed. Please, check and fix the problem.'
+            slackSend color: "danger", message: "The Pipeline build process has failed. Please, check and fix the problem"
         }
         success {
-            echo 'The Pipeline build process has been a success. Good job!'
+            slackSend color: "good", message: "The Pipeline build process has been a success. Good job!"
         }
     }
 }
