@@ -30,6 +30,11 @@ pipeline{
             }
         }
         */
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('Run'){
             steps {
                 sh 'pm2 startOrRestart pm2.config.json'
